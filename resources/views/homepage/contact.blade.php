@@ -28,14 +28,14 @@
 <body>
 <x-navbar />
 
-  <section id="section1" class="container h-screen min-w-full">
-    <div class="atas h-1/2 bg-[#e2f8f6] relative">
+  <section id="section1" class="container h-screen min-w-full pt-24">
+    <div class="atas h-1/2 bg-[#f6eadc] relative">
       <div class="container min-w-full">
         <h1 class="text-4xl font-bold  text-center pt-10 text-black">Get In Touch</h1>
         <p class="text-center mt-1 mb-10 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Sapiente vel voluptatem, expedita pariatur ad error ut unde facere doloremque animi.</p>
         <div class="card block lg:flex gap-4 md:flex bg-white shadow-md w-3/4 h-100 lg:h-96 mx-auto rounded-3xl p-3">
-          <div class="kiri bg-[#00b8b0] w-full lg:w-1/3 rounded-2xl p-9 text-white">
+          <div class="kiri bg-[#c1a07a] w-full lg:w-1/3 rounded-2xl p-9 text-white">
             <h1 class="text-2xl">Contact Information</h1>
             <p class="text-sm text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, molestias?
             </p>
@@ -74,46 +74,46 @@
               <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
                   <input type="email" name="email" id="email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#00b8b0] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#c1a07a] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" " required />
                   <label for="email"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#00b8b0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#c1a07a] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
                     address</label>
                 </div>
                 <div class="relative z-0 w-screen-lg mb-5 group">
                   <input type="text" name="name" id="name"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#00b8b0] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#c1a07a] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                     placeholder=" " required />
                   <label for="name"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-[#00b8b0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-[#c1a07a] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your
                     name</label>
                 </div>
               </div>
               <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="phone" id="phone"
-                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#00b8b0] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#c1a07a] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" " required />
                 <label for="phone"
-                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#00b8b0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#c1a07a] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your
                   phone number</label>
               </div>
               <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="subject" id="subject"
-                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#00b8b0] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-[#c1a07a] focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                   placeholder=" " required />
                 <label for="subject"
-                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#00b8b0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Subject</label>
+                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-[#c1a07a] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Subject</label>
               </div>
               <div class="relative z-0 w-full mb-5 group">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-400">Your
                   message</label>
                 <textarea id="message" name="message" rows="2"
-                  class="block p-2.5 w-full text-sm text-gray-500 bg-gray-50 rounded-lg border-b-4 border-gray-300 focus:ring-blue-500 focus:border-[#00b8b0] dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black "
+                  class="block p-2.5 w-full text-sm text-gray-500 bg-gray-50 rounded-lg border-b-4 border-gray-300 focus:ring-blue-500 focus:border-[#c1a07a] dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black "
                   placeholder="Leave a message..."></textarea>
               </div>
 
               <button type="submit"
-                class="text-white bg-[#00b8b0] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-[#00b8b0] dark:hover:bg-[#00b8b0] dark:focus:ring-[#268984]">Submit</button>
+                class="text-white bg-[#c1a07a] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-[#c1a07a] dark:hover:bg-[#c1a07a] dark:focus:ring-[#268984]">Submit</button>
             </form>
           </div>
         </div>
@@ -126,30 +126,7 @@
 
 
 
-  <!-- Footer -->
-  <div class="footer bg-[#f1f3f2] mt-56">
-    <div class="container py-20 grid grid-cols-1 gap-44 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-      <div class="text-center">
-        <h1 class="text-xl font-bold">PT. HARUM SARI</h1>
-        <p class="text-sm">WOODCRAFT HOMELIVING</p>
-      </div>
-      <div class="text-center">
-        <h1 class="text-xl font-bold">Categories</h1>
-        <div class="mt-5">
-          <a class="block" href="">Bedroom</a>
-          <a class="block" href="">Livingroom</a>
-          <a class="block" href="">Homewares</a>
-          <a class="block" href="">Kids Furniture</a>
-        </div>
-      </div>
-      <div class="text-center">
-        <h1 class="text-xl font-bold">PT. HARUM SARI</h1>
-        <p class="text-sm">WOODCRAFT HOMELIVING</p>
-      </div>
-    </div>
-    <p class="text-center pb-8">&copy; 2024 Copyright: homeliving.co.id </p>
-  </div>
-  <!-- Footer end -->
+  <x-footer />
 
 
   <script>

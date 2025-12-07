@@ -86,9 +86,7 @@
        <p class="font-normal text-xl">{{ $product->nama }}</p>
        <p class="text-gray-500 text-sm">Rp. {{ number_format($product->harga) }}</p>
       </div>
-      <button class="w-full bg-[#e2f8f6] border-y-2 py-3">
-    <a href="{{ route('product.detail', $product->id) }}" class="block text-gray-800">View Details</a>
-</button>
+      <button class="add-to-cart w-full bg-[#e2f8f6] border-y-2 py-3" data-id="{{ $product->id }}">Add to Cart</button>
     </div>
      @endforeach
 
