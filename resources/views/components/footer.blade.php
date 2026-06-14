@@ -72,4 +72,56 @@
             </p>
         </div>
     </div>
+<script>
+(function() {
+    'use strict';
+
+    // Mobile menu toggle
+    var menuBtn = document.getElementById('menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Navbar scroll effect
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+        var startsTransparent = navbar.classList.contains('bg-transparent');
+        var isSolid = false;
+
+        window.addEventListener('scroll', function() {
+            var shouldSolid = window.scrollY > 60;
+            if (shouldSolid === isSolid) return;
+            isSolid = shouldSolid;
+
+            if (shouldSolid) {
+                navbar.classList.remove('bg-transparent');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+                var whiteEls = navbar.querySelectorAll('.text-white');
+                for (var i = 0; i < whiteEls.length; i++) {
+                    whiteEls[i].classList.replace('text-white', 'text-gray-900');
+                }
+            } else if (startsTransparent) {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+                navbar.classList.add('bg-transparent');
+                var grayEls = navbar.querySelectorAll('.text-gray-900');
+                for (var i = 0; i < grayEls.length; i++) {
+                    grayEls[i].classList.replace('text-gray-900', 'text-white');
+                }
+            }
+        });
+        // Run once on load
+        if (window.scrollY > 60) {
+            window.dispatchEvent(new Event('scroll'));
+        }
+    }
+})();
+</script>
 </footer>
