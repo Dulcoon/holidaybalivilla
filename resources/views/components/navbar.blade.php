@@ -53,24 +53,45 @@
 </div>
 
 <script>
+(function() {
+    'use strict';
+
     // Mobile menu toggle
-    document.getElementById('menu-btn')?.addEventListener('click', function() {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
+    var menuBtn = document.getElementById('menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    }
 
     // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 60) {
-            navbar.classList.remove('bg-transparent');
-            navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-            navbar.querySelectorAll('.text-white').forEach(el => el.classList.replace('text-white', 'text-gray-900'));
-        } else {
-            @if(!($isLightBg))
-            navbar.classList.add('bg-transparent');
-            navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-            navbar.querySelectorAll('.text-gray-900').forEach(el => el.classList.replace('text-gray-900', 'text-white'));
-            @endif
-        }
-    });
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+        var isLightBg = {{ $isLightBg ? 'true' : 'false' }};
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 60) {
+                navbar.classList.remove('bg-transparent');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+                var whiteEls = navbar.querySelectorAll('.text-white');
+                for (var i = 0; i < whiteEls.length; i++) {
+                    whiteEls[i].classList.replace('text-white', 'text-gray-900');
+                }
+            } else if (!isLightBg) {
+                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+                var grayEls = navbar.querySelectorAll('.text-gray-900');
+                for (var i = 0; i < grayEls.length; i++) {
+                    grayEls[i].classList.replace('text-gray-900', 'text-white');
+                }
+            }
+        });
+    }
+})();
 </script>
