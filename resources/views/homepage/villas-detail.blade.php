@@ -1,4 +1,4 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,224 +6,186 @@
     <title>{{ $villa->name }} - HolidayBaliVilla</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis. com/css2?family=Oswald:wght@200.. 700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: "Oswald", sans-serif;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            grid-auto-rows: 200px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .gallery-item. large {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-[#FAF8F5] text-[#2D2D2D]">
     @include('components.navbar')
 
     <main class="pt-24">
-        <!-- Breadcrumb -->
-        <section class="bg-white border-b">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <nav class="flex text-gray-500 text-sm" aria-label="Breadcrumb">
-                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                        <li class="inline-flex items-center">
-                            <a href="{{ route('homepage.home') }}" class="text-gray-600 hover:text-[#D6B390] font-medium transition">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 mx-2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                </svg>
-                                <a href="{{ route('homepage.villas') }}" class="text-gray-600 hover:text-[#D6B390] font-medium transition">
-                                    Villas
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex items-center">
-                                <svg class="w-4 h-4 mx-2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                </svg>
-                                <span class="font-semibold text-gray-900">{{ $villa->name }}</span>
-                            </div>
-                        </li>
+        <!-- Hero -->
+        <section class="bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+                <!-- Breadcrumb -->
+                <nav class="flex text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center gap-2">
+                        <li><a href="{{ route('homepage.home') }}" class="hover:text-[#B8915C] transition">Home</a></li>
+                        <li><span class="mx-1 text-gray-300">/</span></li>
+                        <li><a href="{{ route('homepage.villas') }}" class="hover:text-[#B8915C] transition">Villas</a></li>
+                        <li><span class="mx-1 text-gray-300">/</span></li>
+                        <li class="font-semibold text-gray-900">{{ $villa->name }}</li>
                     </ol>
                 </nav>
-            </div>
-        </section>
 
-        <!-- Hero Section - Thumbnail -->
-        <section class="bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div class="rounded-2xl overflow-hidden shadow-xl mb-8">
-                    <img src="{{ $villa->thumbnail ?  url('storage/' . $villa->thumbnail) : url('storage/no_image.png') }}"
+                <!-- Hero Image -->
+                <div class="relative rounded-2xl overflow-hidden shadow-xl mb-10">
+                    <img src="{{ $villa->thumbnail ? url('storage/' . $villa->thumbnail) : url('storage/no_image.png') }}"
                          alt="{{ $villa->name }}"
-                         class="w-full h-96 object-cover" />
+                         class="w-full h-[400px] md:h-[500px] object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
 
                 <!-- Title & Quick Info -->
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
-                    <div class="flex-1">
-                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-                            {{ $villa->name }}
-                        </h1>
-                        <div class="flex flex-wrap items-center gap-4 text-lg text-gray-600 mb-6">
-                            <div class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3. org/2000/svg" class="w-5 h-5 text-[#D6B390]" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3. 59 8 8-3. 59 8-8 8z"/>
-                                </svg>
-                                <span>{{ $villa->location ??  'Bali, Indonesia' }}</span>
-                            </div>
-                            <span class="text-2xl font-bold text-[#D6B390]">
-                                Rp{{ number_format($villa->price_per_night, 0, ',', '.') }}/night
-                            </span>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="md:col-span-2">
+                        <div class="flex items-center gap-2 text-xs tracking-[0.2em] text-[#B8915C] uppercase font-semibold mb-3">
+                            <span>{{ $villa->bedrooms }} Bedroom Villa</span>
+                            <span class="w-1 h-1 rounded-full bg-[#B8915C]"></span>
+                            <span>{{ $villa->location ?? 'Bali' }}</span>
                         </div>
-
-                        @if ($villa->description)
-                            <p class="text-gray-700 text-lg leading-relaxed">
-                                {{ $villa->description }}
-                            </p>
+                        <h1 class="font-serif text-4xl md:text-5xl text-[#1C1C1E] mb-4">{{ $villa->name }}</h1>
+                        @if($villa->description)
+                            <p class="text-gray-600 leading-relaxed">{{ $villa->description }}</p>
                         @endif
                     </div>
-
-                    <!-- CTA Button -->
-                    <div class="flex-shrink-0">
+                    <div class="md:text-right flex md:flex-col items-center md:items-end gap-4 md:gap-0">
+                        <div class="mb-2">
+                            <div class="font-serif text-3xl md:text-4xl text-[#D6B390] font-bold">Rp{{ number_format($villa->price_per_night, 0, ',', '.') }}</div>
+                            <div class="text-sm text-gray-500">per malam</div>
+                        </div>
                         <a href="https://wa.me/62{{ preg_replace('/^0/', '', config('settings.whatsapp_number') ?? '0') }}?text=I'm%20interested%20in%20the%20villa%20{{ urlencode($villa->name) }}%20(%23{{ $villa->slug }})%20-%20Rp{{ number_format($villa->price_per_night) }}/night"
                            target="_blank"
-                           class="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-full hover:bg-[#20ba5a] transition shadow-lg hover:shadow-xl">
-                            <i class="fab fa-whatsapp text-xl"></i>
-                            <span>Contact via WhatsApp</span>
+                           class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] text-white font-bold rounded-full hover:bg-[#20ba5a] transition shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Book via WhatsApp</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Key Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-orange-90">{{ $villa->bedrooms }}</div>
-                        <div class="text-sm text-orange-700 mt-1">Bedrooms</div>
+                <!-- Specs Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div class="bg-[#FAF8F5] border border-gray-100 rounded-xl p-5 text-center hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <div class="font-bold text-gray-900">{{ $villa->bedrooms }}</div>
+                        <div class="text-xs text-gray-500">Bedrooms</div>
                     </div>
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-orange-90">{{ $villa->bathrooms }}</div>
-                        <div class="text-sm text-orange-700 mt-1">Bathrooms</div>
+                    <div class="bg-[#FAF8F5] border border-gray-100 rounded-xl p-5 text-center hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="font-bold text-gray-900">{{ $villa->bathrooms }}</div>
+                        <div class="text-xs text-gray-500">Bathrooms</div>
                     </div>
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-orange-90">{{ $villa->people }}</div>
-                        <div class="text-sm text-orange-700 mt-1">Max Guests</div>
+                    <div class="bg-[#FAF8F5] border border-gray-100 rounded-xl p-5 text-center hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div class="font-bold text-gray-900">{{ $villa->people }}</div>
+                        <div class="text-xs text-gray-500">Max Guests</div>
                     </div>
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-orange-900">{{ $villa->swimming_pool }}</div>
-                        <div class="text-sm text-orange-700 mt-1">Swimming Pool</div>
+                    <div class="bg-[#FAF8F5] border border-gray-100 rounded-xl p-5 text-center hover:shadow-md transition">
+                        <div class="w-10 h-10 rounded-xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/>
+                            </svg>
+                        </div>
+                        <div class="font-bold text-gray-900">{{ $villa->swimming_pool ?? '-' }}</div>
+                        <div class="text-xs text-gray-500">Swimming Pool</div>
                     </div>
-            
                 </div>
             </div>
         </section>
 
-        <!-- Facilities Section -->
+        <!-- Facilities -->
         @php
-            $fasilitas = is_string($villa->fasilitas) ?  json_decode($villa->fasilitas, true) : (is_array($villa->fasilitas) ? $villa->fasilitas : []);
+            $fasilitas = is_string($villa->fasilitas) ? json_decode($villa->fasilitas, true) : (is_array($villa->fasilitas) ? $villa->fasilitas : []);
         @endphp
-        @if (! empty($fasilitas))
-            <section class="bg-gray-50 py-12">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Facilities</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        @foreach ($fasilitas as $item)
-                            <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-[#D6B390]">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-[#F5EDE1] flex items-center justify-center">
-                                        <i class="fas fa-check text-[#D6B390]"></i>
-                                    </div>
-                                    <span class="font-medium text-gray-900">{{ $item }}</span>
-                                </div>
-                            </div>
-                        @endforeach
+        @if(!empty($fasilitas))
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-serif text-3xl text-[#1C1C1E] mb-8">Facilities & Amenities</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    @foreach($fasilitas as $item)
+                    <div class="bg-[#FAF8F5] rounded-xl p-4 flex items-center gap-3 border border-gray-100 hover:border-[#D6B390]/30 transition">
+                        <div class="w-9 h-9 rounded-lg bg-[#F5EDE1] flex items-center justify-center shrink-0">
+                            <svg class="w-4 h-4 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium text-gray-800">{{ $item }}</span>
                     </div>
+                    @endforeach
                 </div>
-            </section>
+            </div>
+        </section>
         @endif
 
-        <!-- Address & Maps Section -->
-        <section class="bg-white py-12">
+        <!-- Location & Specs -->
+        <section class="py-16 bg-[#FAF8F5]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Address Info -->
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Location -->
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Location & Address</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Location</p>
-                                <p class="text-xl font-bold text-gray-900 mt-2">{{ $villa->location ??  'Bali, Indonesia' }}</p>
+                        <h2 class="font-serif text-3xl text-[#1C1C1E] mb-6">Location & Address</h2>
+                        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                            <div class="space-y-5">
+                                <div>
+                                    <p class="text-xs tracking-wider text-gray-400 uppercase font-semibold mb-1">Location</p>
+                                    <p class="text-lg font-bold text-gray-900">{{ $villa->location ?? 'Bali, Indonesia' }}</p>
+                                </div>
+                                <div class="border-t border-gray-100 pt-5">
+                                    <p class="text-xs tracking-wider text-gray-400 uppercase font-semibold mb-1">Full Address</p>
+                                    <p class="text-gray-700">{{ $villa->address ?? 'Bali, Indonesia' }}</p>
+                                </div>
+                                @if($villa->maps_link)
+                                <div class="pt-2">
+                                    <a href="{{ $villa->maps_link }}" target="_blank"
+                                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#D6B390] text-[#1C1C1E] font-semibold rounded-full hover:bg-[#C7A277] transition text-sm">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Open in Google Maps
+                                    </a>
+                                </div>
+                                @endif
                             </div>
-                            <div>
-                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Full Address</p>
-                                <p class="text-lg text-gray-700 mt-2">{{ $villa->address }}</p>
-                            </div>
-                            @if ($villa->maps_link)
-                                <a href="{{ $villa->maps_link }}" target="_blank"
-                                   class="inline-flex items-center gap-2 px-6 py-3 bg-[#D6B390] text-black font-semibold rounded-full hover:bg-[#c1a07a] transition">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Open in Google Maps</span>
-                                </a>
-                            @endif
                         </div>
                     </div>
 
-                    <!-- Detailed Specs -->
+                    <!-- Specs -->
                     <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Specifications</h2>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                                <span class="text-gray-700 font-medium">Bedrooms</span>
-                                <span class="text-xl font-bold text-[#D6B390]">{{ $villa->bedrooms }}</span>
+                        <h2 class="font-serif text-3xl text-[#1C1C1E] mb-6">Specifications</h2>
+                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-100">
+                            <div class="flex items-center justify-between px-6 py-4">
+                                <span class="text-gray-600">Bedrooms</span>
+                                <span class="font-bold text-gray-900">{{ $villa->bedrooms }}</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                                <span class="text-gray-700 font-medium">Bathrooms</span>
-                                <span class="text-xl font-bold text-[#D6B390]">{{ $villa->bathrooms }}</span>
+                            <div class="flex items-center justify-between px-6 py-4">
+                                <span class="text-gray-600">Bathrooms</span>
+                                <span class="font-bold text-gray-900">{{ $villa->bathrooms }}</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                                <span class="text-gray-700 font-medium">Guest Capacity</span>
-                                <span class="text-xl font-bold text-[#D6B390]">{{ $villa->people }}</span>
+                            <div class="flex items-center justify-between px-6 py-4">
+                                <span class="text-gray-600">Guest Capacity</span>
+                                <span class="font-bold text-gray-900">{{ $villa->people }}</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                                <span class="text-gray-700 font-medium">Swimming Pool</span>
-                                <span class="text-xl font-bold text-[#D6B390]">{{ $villa->swimming_pool }}</span>
+                            <div class="flex items-center justify-between px-6 py-4">
+                                <span class="text-gray-600">Swimming Pool</span>
+                                <span class="font-bold text-gray-900">{{ $villa->swimming_pool ?? '-' }}</span>
                             </div>
-                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                                <span class="text-gray-700 font-medium">Price per Night</span>
-                                <span class="text-xl font-bold text-[#D6B390]">Rp{{ number_format($villa->price_per_night, 0, ',', '.') }}</span>
+                            <div class="flex items-center justify-between px-6 py-4">
+                                <span class="text-gray-600">Price per Night</span>
+                                <span class="font-bold text-[#D6B390] text-lg">Rp{{ number_format($villa->price_per_night, 0, ',', '.') }}</span>
                             </div>
                         </div>
                     </div>
@@ -231,65 +193,67 @@
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        @if ($villa->images->count() > 0)
-            <section class="bg-gray-50 py-12">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Photo Gallery</h2>
-
-                    <!-- Gallery Grid -->
-                    <div class="gallery-grid">
-                        @foreach ($villa->images as $index => $image)
-                            <div class="gallery-item {{ $index === 0 ? 'large' : '' }}" 
-                                 data-gallery-image="{{ url('storage/' . $image->image_path) }}"
-                                 onclick="openGalleryModal(this)">
-                                <img src="{{ url('storage/' . $image->image_path) }}"
-                                     alt="Gallery image {{ $index + 1 }}"
-                                     loading="lazy" />
-                                <div class="absolute inset-0 bg-black/0 hover:bg-black/20 transition flex items-center justify-center">
-                                    <i class="fas fa-search text-white text-2xl"></i>
-                                </div>
-                            </div>
-                        @endforeach
+        <!-- Gallery -->
+        @if($villa->images->count() > 0)
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-serif text-3xl text-[#1C1C1E] mb-8">Photo Gallery</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    @foreach($villa->images as $index => $image)
+                    <div class="relative group cursor-pointer rounded-xl overflow-hidden {{ $index === 0 ? 'sm:col-span-2 sm:row-span-2' : '' }}"
+                         onclick="openGallery({{ $index }})">
+                        <img src="{{ url('storage/' . $image->image_path) }}"
+                             alt="Gallery {{ $index + 1 }}"
+                             class="w-full h-full object-cover {{ $index === 0 ? 'h-[400px]' : 'h-48 sm:h-56' }} group-hover:scale-105 transition duration-500"/>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                            </svg>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
-            </section>
-        @endif
+            </div>
+        </section>
 
         <!-- Gallery Modal -->
-        <div id="galleryModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-            <div class="relative max-w-4xl w-full">
-                <img id="modalImage" src="" alt="Gallery" class="w-full rounded-lg max-h-[80vh] object-contain" />
-                <button onclick="closeGalleryModal()" class="absolute top-4 right-4 bg-white text-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition">
-                    <i class="fas fa-times text-xl"></i>
+        <div id="galleryModal" class="hidden fixed inset-0 bg-black/95 z-50 flex items-center justify-center">
+            <div class="relative w-full h-full flex items-center justify-center p-4">
+                <img id="modalImage" src="" alt="Gallery" class="max-w-full max-h-[85vh] object-contain rounded-lg"/>
+                <button onclick="closeGallery()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
-                <button onclick="previousImage()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-200 transition">
-                    <i class="fas fa-chevron-left text-xl"></i>
+                <button onclick="prevImage()" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-200 transition">
-                    <i class="fas fa-chevron-right text-xl"></i>
+                <button onclick="nextImage()" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+                    <span id="galleryCounter">1/{{ count($villa->images) }}</span>
+                </div>
             </div>
         </div>
+        @endif
 
-        <!-- CTA Section -->
-        <section class="bg-gradient-to-r from-[#D6B390] to-[#C89B6F] py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Interested in This Villa?</h2>
-                <p class="text-black/90 text-lg mb-8">Contact our team now for booking and more information.</p>
-                <a href="https://wa.me/62{{ preg_replace('/^0/', '', config('settings.whatsapp_number') ??  '0') }}?text=I'm%20interested%20in%20the%20villa%20{{ urlencode($villa->name) }}%20(%23{{ $villa->slug }})%20-%20Rp{{ number_format($villa->price_per_night) }}/night"
+        <!-- CTA -->
+        <section class="py-16 bg-gradient-to-r from-[#B8915C] to-[#D6B390]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Interested in {{ $villa->name }}?</h2>
+                <p class="text-white/90 text-lg mb-8">Contact our team now for booking and more information.</p>
+                <a href="https://wa.me/62{{ preg_replace('/^0/', '', config('settings.whatsapp_number') ?? '0') }}?text=I'm%20interested%20in%20the%20villa%20{{ urlencode($villa->name) }}%20(%23{{ $villa->slug }})%20-%20Rp{{ number_format($villa->price_per_night) }}/night"
                    target="_blank"
-                   class="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#D6B390] font-bold rounded-full hover:bg-gray-100 transition shadow-lg">
-                    <i class="fab fa-whatsapp text-2xl text-black"></i>
-                    <span class="text-black">Chat on WhatsApp Now</span>
+                   class="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#B8915C] font-bold rounded-full hover:bg-gray-100 transition shadow-xl">
+                    <i class="fab fa-whatsapp text-xl text-[#25D366]"></i>
+                    <span>Chat on WhatsApp Now</span>
                 </a>
             </div>
         </section>
 
         <!-- Related Villas -->
-        <section class="bg-white py-12">
+        <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">Other Villas</h2>
+                <h2 class="font-serif text-3xl text-[#1C1C1E] mb-8">Other Villas You Might Like</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     @php
                         $relatedVillas = \App\Models\Villa::where('status', 'available')
@@ -297,37 +261,32 @@
                             ->limit(3)
                             ->get();
                     @endphp
-                    @forelse ($relatedVillas as $related)
-                        <div class="bg-white rounded-3xl shadow-[0_16px_35px_rgba(15,23,42,0.11)] hover:shadow-lg transition overflow-hidden">
-                            <div class="relative h-60 w-full overflow-hidden">
-                                <img src="{{ $related->thumbnail ?  url('storage/' . $related->thumbnail) : url('storage/no_image.png') }}"
-                                     alt="{{ $related->name }}"
-                                     class="w-full h-full object-cover group-hover:scale-105 transition" />
-                                <div class="absolute top-4 right-4">
-                                    <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium text-gray-800 shadow-md">
-                                        {{ $related->bedrooms }} Bed / {{ $related->people }} Guests
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h3 class="text-lg font-bold text-gray-900 mb-1">{{ $related->name }}</h3>
-                                <p class="text-xs text-gray-500 flex items-center gap-1 mb-4">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    {{ $related->location ??  'Bali' }}
-                                </p>
-                                <div class="flex items-center justify-between gap-3">
-                                    <span class="px-4 py-2 rounded-xl bg-[#E9DFBF] text-[13px] font-semibold text-gray-900">
-                                        Rp{{ number_format($related->price_per_night, 0, ',', '.') }}/night
-                                    </span>
-                                    <a href="{{ route('homepage.villas-detail', $related) }}"
-                                       class="text-sm px-4 py-2 bg-[#D6B390] rounded-full font-semibold text-black hover:bg-[#c1a07a] transition">
-                                        View Details →
-                                    </a>
-                                </div>
+                    @forelse($relatedVillas as $related)
+                    <a href="{{ route('homepage.villas-detail', $related) }}"
+                       class="group bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="{{ $related->thumbnail ? url('storage/' . $related->thumbnail) : url('storage/no_image.png') }}"
+                                 alt="{{ $related->name }}"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-700"/>
+                            <div class="absolute top-3 right-3">
+                                <span class="inline-flex items-center bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-800 shadow-sm">
+                                    {{ $related->bedrooms }} Bed ⋅ {{ $related->people }} Guest
+                                </span>
                             </div>
                         </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-gray-900 group-hover:text-[#B8915C] transition">{{ $related->name }}</h3>
+                            <p class="text-xs text-gray-500 mt-1 mb-3">
+                                <i class="fas fa-map-marker-alt mr-1"></i>{{ $related->location ?? 'Bali' }}
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                                <span class="font-bold text-gray-900">Rp{{ number_format($related->price_per_night, 0, ',', '.') }}/night</span>
+                                <span class="text-sm font-semibold text-[#B8915C]">View Details →</span>
+                            </div>
+                        </div>
+                    </a>
                     @empty
-                        <p class="col-span-full text-center text-gray-500">No other villas available</p>
+                        <p class="col-span-full text-center text-gray-500 py-8">No other villas available</p>
                     @endforelse
                 </div>
             </div>
@@ -336,52 +295,50 @@
 
     <x-footer />
 
-    <!-- Footer -->
-    
-
     <script>
-        let currentImageIndex = 0;
+        let galleryIndex = 0;
         let galleryImages = [];
 
-        function openGalleryModal(element) {
-            const modal = document.getElementById('galleryModal');
-            const modalImage = document.getElementById('modalImage');
-            
-            galleryImages = Array.from(document.querySelectorAll('[data-gallery-image]'))
-                .map(el => el.getAttribute('data-gallery-image'));
-            
-            currentImageIndex = Array.from(document.querySelectorAll('[data-gallery-image]'))
-                .indexOf(element);
-            
-            modalImage.src = galleryImages[currentImageIndex];
-            modal.classList.remove('hidden');
+        @if($villa->images->count() > 0)
+        galleryImages = [
+            @foreach($villa->images as $image)
+            "{{ url('storage/' . $image->image_path) }}",
+            @endforeach
+        ];
+
+        function openGallery(index) {
+            galleryIndex = index;
+            document.getElementById('modalImage').src = galleryImages[index];
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.getElementById('galleryCounter').textContent = (index + 1) + '/' + galleryImages.length;
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeGalleryModal() {
+        function closeGallery() {
             document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
         function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            galleryIndex = (galleryIndex + 1) % galleryImages.length;
+            document.getElementById('modalImage').src = galleryImages[galleryIndex];
+            document.getElementById('galleryCounter').textContent = (galleryIndex + 1) + '/' + galleryImages.length;
         }
 
-        function previousImage() {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+        function prevImage() {
+            galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('modalImage').src = galleryImages[galleryIndex];
+            document.getElementById('galleryCounter').textContent = (galleryIndex + 1) + '/' + galleryImages.length;
         }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeGalleryModal();
-        });
 
         document.addEventListener('keydown', (e) => {
             const modal = document.getElementById('galleryModal');
-            if (! modal.classList.contains('hidden')) {
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') previousImage();
-            }
+            if (modal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeGallery();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
         });
+        @endif
     </script>
 </body>
 </html>

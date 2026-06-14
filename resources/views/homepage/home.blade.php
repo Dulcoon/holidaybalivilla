@@ -1,423 +1,313 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Woodcraft Homeliving</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HolidayBaliVilla — Private Villas in Bali</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        body {
-            font-family: "Oswald", sans-serif;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%); }
     </style>
 </head>
-
-<body class="bg-grey-100">
-
-
-
+<body class="bg-[#FAF8F5] text-[#2D2D2D]">
     <x-navbar />
 
     <main>
-        <!-- HERO SECTION -->
-        <section id="section1" class="relative h-screen pt-24">
-            <!-- Background / Carousel Placeholder -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="w-full h-full relative">
-                    <!-- Slide 1 -->
-                    <div data-hero-slide
-                        class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out"
-                        style="background-image: url('{{ asset('herro-carousel/villa-1.jpg') }}');">
-                    </div>
-                    <!-- Slide 2 -->
-                    <div data-hero-slide
-                        class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-700 ease-in-out"
-                        style="background-image: url('{{ asset('herro-carousel/villa-2.jpg') }}');">
-                    </div>
-                    <!-- Slide 3 -->
-                    <div data-hero-slide
-                        class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-700 ease-in-out"
-                        style="background-image: url('{{ asset('herro-carousel/villa-3.jpg') }}');">
-                    </div>
-
-                    <!-- Overlay gelap supaya teks kebaca -->
-                    <div class="absolute inset-0 bg-black/40"></div>
-                </div>
+        <!-- ==================== HERO ==================== -->
+        <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+            <!-- Carousel Background -->
+            <div class="absolute inset-0">
+                <div data-hero-slide class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+                     style="background-image: url('{{ asset('herro-carousel/villa-1.jpg') }}');"></div>
+                <div data-hero-slide class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000"
+                     style="background-image: url('{{ asset('herro-carousel/villa-2.jpg') }}');"></div>
+                <div data-hero-slide class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000"
+                     style="background-image: url('{{ asset('herro-carousel/villa-3.jpg') }}');"></div>
+                <div class="absolute inset-0 hero-gradient"></div>
             </div>
 
-            <!-- Content di tengah -->
-            <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center text-white">
-                <p class="tracking-[0.3em] text-xs md:text-sm mb-4">
-                    HOLIDAYBALIVILLA &nbsp;•&nbsp; PRIVATE VILLA IN BALI
-                </p>
-
-                <h1 class="text-4xl md:text-6xl font-semibold mb-4 leading-tight">
-                    Find Your Dream Villa<br />
-                    For a Perfect Getaway in Bali
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <div class="inline-block mb-5">
+                    <span class="text-xs tracking-[0.3em] uppercase bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full border border-white/20">
+                        HolidayBaliVilla ⋅ Private Villa in Bali
+                    </span>
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-6">
+                    Temukan Villa<br/>
+                    <span class="text-[#D6B390]">Impian</span> di Bali
                 </h1>
-
-                <p class="max-w-xl text-sm md:text-base text-white/80 mb-8">
-                    Choose from our collection of private villas featuring swimming pools, strategic locations, and
-                    professional service — perfect for family vacations, honeymoons, or long stays on the Island of
-                    Bali.
+                <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-light">
+                    Dari keluarga hingga honeymoon — pilih villa privat dengan kolam renang, lokasi strategis, dan layanan profesional.
                 </p>
-
-                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('homepage.villas') }}"
-                        class="px-8 py-3 bg-[#D6B390] text-black font-semibold text-sm rounded-full hover:bg-[#c7a277] transition">
-                        Explore Villas & Availability
+                       class="px-8 py-4 bg-[#D6B390] text-[#1C1C1E] font-bold rounded-full hover:bg-[#C7A277] transition shadow-xl shadow-black/20">
+                        Explore Villas
                     </a>
                     <a href="{{ route('email.form') }}"
-                        class="px-8 py-3 border border-white/80 text-sm rounded-full hover:bg-white hover:text-black transition">
-                        Talk to Our Villa Expert
+                       class="px-8 py-4 border-2 border-white/40 text-white rounded-full hover:bg-white/10 transition">
+                        Talk to Villa Expert
                     </a>
                 </div>
             </div>
 
-            <!-- Placeholder indikator carousel (bisa disambungkan dengan JS nanti) -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                <span class="w-2 h-2 rounded-full bg-white/90"></span>
-                <span class="w-2 h-2 rounded-full bg-white/40"></span>
-                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+            <!-- Carousel indicators -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex gap-3">
+                <span class="w-8 h-1 rounded-full bg-white/90"></span>
+                <span class="w-3 h-1 rounded-full bg-white/40"></span>
+                <span class="w-3 h-1 rounded-full bg-white/40"></span>
             </div>
-        </section>
-        <!-- Section 2 start -->
-        <section id="section2" class="py-20 bg-white">
-            <div class="container mx-auto px-4 lg:px-2">
-                <!-- Header -->
-                <div class="flex items-start justify-between gap-6 mb-10">
-                    <div>
-                        <p class="text-xs tracking-[0.3em] text-gray-400 uppercase">
-                            Discover
-                        </p>
-                        <h2 class="mt-3 text-3xl md:text-5xl font-semibold leading-tight text-gray-900">
-                            Explore your<br class="hidden md:block" />
-                            dream destination
-                        </h2>
-                    </div>
 
-                    <a href="{{ route('homepage.villas') }}">
-                        <button
-                            class="hidden md:inline-flex items-center justify-center px-6 py-3 rounded-full bg-black text-white text-sm font-medium hover:bg-gray-900 transition">
-                            View more
-                        </button>
-                    </a>
-                </div>
-
-                <!-- Cards (horizontal scroll) -->
-                <div class="-mx-4 px-4">
-                    <div class="flex gap-6 overflow-x-auto pb-4">
-                        @forelse ($villas as $villa)
-                            <!-- Card -->
-                            <div
-                                class="relative min-w-[260px] max-w-xs bg-white rounded-3xl shadow-[0_16px_35px_rgba(15,23,42,0.16)] flex-shrink-0 overflow-hidden">
-
-                                <!-- FOTO -->
-                                <div class="relative h-64 w-full">
-                                    <img src="{{ $villa->thumbnail ? url('storage/' . $villa->thumbnail) : url('storage/no_image.png') }}"
-                                        alt="{{ $villa->name }}" class="w-full h-full object-cover" />
-
-                                    <!-- Pill di dalam foto, kanan atas -->
-                                    <div class="absolute top-3 right-3">
-                                        <span
-                                            class="inline-flex items-center rounded-full bg-white px-4 py-1 text-xs font-medium text-gray-800 shadow-md">
-                                            {{ $villa->bedrooms }} Bedroom / {{ $villa->people }} Guest
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <!-- INFO BAWAH (tidak overlap) -->
-                                <div class="flex items-center justify-between px-4 py-4 bg-white">
-                                    <div>
-                                        <p class="text-sm font-semibold text-gray-900">
-                                            {{ $villa->name }}
-                                        </p>
-                                        <p class="mt-1 text-xs text-gray-500 flex items-center gap-1">
-                                            <svg xmlns="http://www.w3. org/2000/svg" viewBox="0 0 24 24"
-                                                class="w-3 h-3 fill-current text-gray-400">
-                                                <path
-                                                    d="M12 2. 25A6.75 6.75 0 0 0 5.25 9c0 4.283 4.312 8. 7 6.21 10.41a. 75.75 0 0 0 1.04 0C14.398 17.7 18. 75 13.283 18.75 9A6.75 6.75 0 0 0 12 2.25Zm0 4.5A2.25 2.25 0 1 1 9.75 9 2.25 2.25 0 0 1 12 6.75Z" />
-                                            </svg>
-                                            {{ $villa->location ?? 'Bali' }}
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        class="px-4 py-2 rounded-xl bg-[#E9DFBF] text-[11px] font-semibold text-gray-900 whitespace-nowrap">
-                                        Rp. {{ number_format($villa->price_per_night, 0, ',', '.') }}
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <!-- Jika tidak ada villa -->
-                            <div class="w-full text-center py-12">
-                                <p class="text-gray-500">Belum ada villa yang tersedia</p>
-                            </div>
-                        @endforelse
-                    </div>
-                </div>
-
-                <!-- View more (mobile) -->
-                <div class="mt-6 flex justify-center md:hidden">
-                    <a href="{{ route('homepage.villas') }}">
-                        <button
-                            class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-black text-white text-sm font-medium hover:bg-gray-900 transition">
-                            View more
-                        </button>
-                    </a>
-                </div>
+            <!-- Scroll down -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+                <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
             </div>
         </section>
-        <!-- section 2 end -->
 
-
-
-
-
-
-
-
-
-        <!-- Section 3 - Testimonials -->
-        <section id="section3" class="py-20 bg-[#f7faf9]">
-            <div class="container mx-auto px-4 lg:px-2">
-                <!-- Header -->
-                <div class="flex items-start justify-between gap-6 mb-12">
+        <!-- ==================== VILLA SHOWCASE ==================== -->
+        <section id="section2" class="py-24 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-end justify-between mb-12">
                     <div>
-                        <p class="text-xs tracking-[0.3em] text-gray-400 uppercase">
-                            Testimonials
-                        </p>
-                        <h2 class="mt-3 text-3xl md:text-4xl font-semibold leading-tight text-gray-900">
-                            What our guests say
+                        <p class="text-xs tracking-[0.3em] text-[#B8915C] uppercase font-semibold">Discover</p>
+                        <h2 class="font-serif text-4xl md:text-5xl text-[#1C1C1E] mt-3 leading-tight">
+                            Our Curated<br class="hidden md:block"/>
+                            <span class="text-[#D6B390]">Villa Collection</span>
                         </h2>
-                        <p class="mt-3 text-sm md:text-base text-gray-500 max-w-xl">
-                            Memorable guest experiences at HolidayBaliVilla — from intimate honeymoons to unforgettable
-                            family holidays in our curated private villas.
-                        </p>
                     </div>
+                    <a href="{{ route('homepage.villas') }}"
+                       class="hidden md:inline-flex items-center gap-2 px-6 py-3 bg-[#1C1C1E] text-white rounded-full text-sm font-semibold hover:bg-gray-800 transition">
+                        View All
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
 
-                <!-- Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Card 1 -->
-                    <div class="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden">
-                                <img src="{{ asset('assets/profile.png') }}" alt="Guest"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-900">Sarah Johnson</p>
-                                <p class="text-xs text-gray-500">Stayed at Zen Villas</p>
+                @if($villas->count() > 0)
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    @foreach($villas as $villa)
+                    <a href="{{ route('homepage.villas-detail', $villa->slug) }}"
+                       class="group bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-1">
+                        <div class="relative h-64 overflow-hidden bg-gray-100">
+                            <img src="{{ $villa->thumbnail ? url('storage/' . $villa->thumbnail) : url('storage/no_image.png') }}"
+                                 alt="{{ $villa->name }}"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-700"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4">
+                                <span class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-semibold text-gray-800 shadow-sm">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    {{ $villa->bedrooms }} Bed ⋅ {{ $villa->people }} Guest
+                                </span>
                             </div>
                         </div>
+                        <div class="p-5 md:p-6">
+                            <div class="flex items-start justify-between gap-4 mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#B8915C] transition">{{ $villa->name }}</h3>
+                                    <p class="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                        {{ $villa->location ?? 'Bali, Indonesia' }}
+                                    </p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <div class="font-bold text-gray-900">Rp{{ number_format($villa->price_per_night, 0, ',', '.') }}</div>
+                                    <div class="text-[11px] text-gray-500">/ malam</div>
+                                </div>
+                            </div>
+                            @if($villa->fasilitas)
+                                @php
+                                    $facilities = is_string($villa->fasilitas) ? json_decode($villa->fasilitas, true) : (is_array($villa->fasilitas) ? $villa->fasilitas : []);
+                                    $displayed = array_slice($facilities, 0, 3);
+                                @endphp
+                                @if(!empty($displayed))
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    @foreach($displayed as $item)
+                                        <span class="text-[11px] px-2.5 py-1 rounded-full bg-[#F5EDE1] text-gray-700">{{ $item }}</span>
+                                    @endforeach
+                                </div>
+                                @endif
+                            @endif
+                            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <span class="text-sm font-semibold text-[#B8915C] group-hover:gap-2 transition-all flex items-center gap-1">
+                                    View Details
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    @endforeach
+                </div>
 
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            “Villanya sangat bersih, tenang, dan staff-nya super helpful. Sunset
-                            dari private pool benar-benar jadi highlight liburan kami di Bali.”
-                        </p>
+                <div class="mt-10 text-center md:hidden">
+                    <a href="{{ route('homepage.villas') }}"
+                       class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#1C1C1E] text-white rounded-full font-semibold hover:bg-gray-800 transition">
+                        View All Villas
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+                @else
+                <div class="text-center py-16">
+                    <p class="text-gray-500">Belum ada villa tersedia.</p>
+                </div>
+                @endif
+            </div>
+        </section>
 
-                        <div class="mt-4 flex items-center gap-1">
-                            @for ($i = 0; $i < 5; $i++)
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-[#fcca2d]">
-                                    <path fill-rule="evenodd"
-                                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                        clip-rule="evenodd" />
-                                </svg>
+        <!-- ==================== TESTIMONIALS ==================== -->
+        <section id="section3" class="py-24 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <p class="text-xs tracking-[0.3em] text-[#B8915C] uppercase font-semibold">Testimonials</p>
+                    <h2 class="font-serif text-4xl md:text-5xl text-[#1C1C1E] mt-3">What Our <span class="text-[#D6B390]">Guests Say</span></h2>
+                    <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Kami bangga menjadi bagian dari momen berharga tamu kami.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-[#FAF8F5] rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                        <div class="flex gap-1 mb-5">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-4 h-4 text-[#fcca2d]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
                             @endfor
                         </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            "Villanya sangat bersih, tenang, dan staff-nya super helpful. Sunset dari private pool benar-benar jadi highlight liburan kami di Bali."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-[#D6B390]/20 flex items-center justify-center text-[#B8915C] font-bold text-sm">SJ</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 text-sm">Sarah Johnson</p>
+                                <p class="text-xs text-gray-500">Stayed at Bale Agung</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Card 2 -->
-                    <div class="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden">
-                                <img src="{{ asset('assets/profile.png') }}" alt="Guest"
-                                    class="w-full h-full object-cover">
-                            </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-[#FAF8F5] rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                        <div class="flex gap-1 mb-5">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-4 h-4 text-[#fcca2d]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            @endfor
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            "Lokasinya dekat pantai, tapi tetap private. Anak-anak senang banget dengan pool dan garden-nya."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-[#D6B390]/20 flex items-center justify-center text-[#B8915C] font-bold text-sm">MB</div>
                             <div>
-                                <p class="font-semibold text-gray-900">Michael Brown</p>
+                                <p class="font-semibold text-gray-900 text-sm">Michael Brown</p>
                                 <p class="text-xs text-gray-500">Family getaway</p>
                             </div>
                         </div>
-
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            “Lokasinya dekat pantai, tapi tetap private. Anak-anak senang
-                            banget dengan pool dan garden-nya, sementara kami bisa santai di
-                            living room yang luas.”
-                        </p>
-
-                        <div class="mt-4 flex items-center gap-1">
-                            @for ($i = 0; $i < 5; $i++)
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-[#fcca2d]">
-                                    <path fill-rule="evenodd"
-                                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            @endfor
-                        </div>
                     </div>
 
-                    <!-- Card 3 -->
-                    <div class="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden">
-                                <img src="{{ asset('assets/profile.png') }}" alt="Guest"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-900">Emily Davis</p>
-                                <p class="text-xs text-gray-500">Honeymoon trip</p>
-                            </div>
-                        </div>
-
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            “Team HolidayBaliVilla sangat responsif dari sebelum booking
-                            sampai check-out. Villa-nya romantis, dekorasi simple tapi mewah,
-                            cocok banget untuk honeymoon.”
-                        </p>
-
-                        <div class="mt-4 flex items-center gap-1">
-                            @for ($i = 0; $i < 5; $i++)
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-[#fcca2d]">
-                                    <path fill-rule="evenodd"
-                                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                        clip-rule="evenodd" />
-                                </svg>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-[#FAF8F5] rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                        <div class="flex gap-1 mb-5">
+                            @for($i = 0; $i < 5; $i++)
+                            <svg class="w-4 h-4 text-[#fcca2d]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
                             @endfor
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            "Team HolidayBaliVilla sangat responsif dari sebelum booking sampai check-out. Villa-nya romantis, dekorasi simple tapi mewah."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-[#D6B390]/20 flex items-center justify-center text-[#B8915C] font-bold text-sm">ED</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 text-sm">Emily Davis</p>
+                                <p class="text-xs text-gray-500">Honeymoon</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Section 3 end -->
 
-
-        <!-- section 5 - Why choose us -->
-        <section id="section5" class="py-20 bg-white">
-            <div class="container mx-auto px-4 lg:px-2">
-                <div class="text-center mb-12">
-                    <p class="text-xs tracking-[0.3em] text-gray-400 uppercase">Why choose us</p>
-                    <h2 class="mt-3 text-3xl md:text-4xl font-semibold text-gray-900">
-                        Stay with confidence
-                    </h2>
-                    <p class="mt-3 text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
-                        Kami mengkurasi villa-villa terbaik di Bali dengan standar kebersihan,
-                        kenyamanan, dan pelayanan yang konsisten, sehingga Anda bisa fokus
-                        menikmati liburan.
-                    </p>
+        <!-- ==================== WHY CHOOSE US ==================== -->
+        <section id="section5" class="py-24 md:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14">
+                    <p class="text-xs tracking-[0.3em] text-[#B8915C] uppercase font-semibold">Why Choose Us</p>
+                    <h2 class="font-serif text-4xl md:text-5xl text-[#1C1C1E] mt-3">Stay with <span class="text-[#D6B390]">Confidence</span></h2>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="text-center flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-full bg-[#f5ede1] flex items-center justify-center mb-4">
-                            <!-- icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-[#D6B390]">
-                                <path d="M12 2.25 3 7.5v12.75h6.75v-6h4.5v6H21V7.5L12 2.25Z" />
+                    <div class="text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-5">
+                            <svg class="w-6 h-6 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                             </svg>
                         </div>
-                        <p class="text-base font-semibold text-gray-900">Curated private villas</p>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Semua villa telah dikurasi dan dicek kualitasnya, mulai dari lokasi,
-                            fasilitas, hingga pengalaman tamu sebelumnya.
-                        </p>
+                        <h3 class="font-bold text-gray-900 mb-2">Curated Villas</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Semua villa telah dikurasi dari lokasi, fasilitas, hingga kualitas pengalaman tamu.</p>
                     </div>
-
-                    <!-- Feature 2 -->
-                    <div class="text-center flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-full bg-[#f5ede1] flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-[#D6B390]">
-                                <path
-                                    d="M12 1.5A7.5 7.5 0 0 0 4.5 9v3.75l-1.72 3.44A1.125 1.125 0 0 0 3.78 18h16.44a1.125 1.125 0 0 0 1-1.81L19.5 12.75V9A7.5 7.5 0 0 0 12 1.5Z" />
+                    <div class="text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-5">
+                            <svg class="w-6 h-6 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
                             </svg>
                         </div>
-                        <p class="text-base font-semibold text-gray-900">24/7 guest support</p>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Tim kami siap membantu mulai dari proses booking, penjemputan,
-                            hingga kebutuhan selama menginap.
-                        </p>
+                        <h3 class="font-bold text-gray-900 mb-2">24/7 Support</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Tim kami siap membantu dari booking, penjemputan, hingga kebutuhan selama menginap.</p>
                     </div>
-
-                    <!-- Feature 3 -->
-                    <div class="text-center flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-full bg-[#f5ede1] flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-[#D6B390]">
-                                <path fill-rule="evenodd"
-                                    d="M12 3.75a8.25 8.25 0 1 0 8.25 8.25A8.259 8.259 0 0 0 12 3.75Zm.75 4.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 .336.627l2.25 1.5a.75.75 0 1 0 .828-1.254L12.75 12.6V8.25Z"
-                                    clip-rule="evenodd" />
+                    <div class="text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-5">
+                            <svg class="w-6 h-6 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <p class="text-base font-semibold text-gray-900">Flexible check-in</p>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Opsi early check-in dan late check-out* untuk menyesuaikan jadwal
-                            penerbangan dan itinerary Anda.
-                        </p>
+                        <h3 class="font-bold text-gray-900 mb-2">Flexible Check-in</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Opsi early check-in dan late check-out untuk menyesuaikan jadwal penerbangan Anda.</p>
                     </div>
-
-                    <!-- Feature 4 -->
-                    <div class="text-center flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-full bg-[#f5ede1] flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-[#D6B390]">
-                                <path fill-rule="evenodd"
-                                    d="M2.25 12a9.75 9.75 0 1 1 17.444 5.652l1.403 1.403a.75.75 0 1 1-1.061 1.06l-1.403-1.402A9.75 9.75 0 0 1 2.25 12Zm9.75-5.25a.75.75 0 0 1 .75.75v3.75h3.75a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75V7.5a.75.75 0 0 1 .75-.75Z"
-                                    clip-rule="evenodd" />
+                    <div class="text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-[#F5EDE1] flex items-center justify-center mx-auto mb-5">
+                            <svg class="w-6 h-6 text-[#B8915C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                             </svg>
                         </div>
-                        <p class="text-base font-semibold text-gray-900">Transparent pricing</p>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Harga yang jelas tanpa biaya tersembunyi, sehingga Anda bisa
-                            merencanakan budget liburan dengan tenang.
-                        </p>
+                        <h3 class="font-bold text-gray-900 mb-2">Transparent Pricing</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Harga jelas tanpa biaya tersembunyi. Rencanakan budget liburan dengan tenang.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- section 5 end -->
-
-
-      <x-footer />
-
-
-
-
     </main>
 
+    <x-footer />
 
+    <!-- Hero Carousel -->
     <script>
-        document.getElementById('menu-btn').addEventListener('click', function () {
-            var menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
-        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('[data-hero-slide]');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+        }
+        setInterval(nextSlide, 5000);
     </script>
-
-
-    <script>
-        // Select navbar and target section
-        const navbar = document.getElementById('navbar');
-        const mobile = document.getElementById('mobile-menu');
-        const targetSection = document.getElementById("section2"); // Ganti sesuai section yang diinginkan
-
-        //
-    </script>
-
-
-
 </body>
-
 </html>
