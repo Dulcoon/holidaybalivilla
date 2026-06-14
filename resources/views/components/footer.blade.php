@@ -73,6 +73,7 @@
         </div>
     </div>
 <script>
+// Guarantee toggleMobileMenu exists BEFORE any click handler fires
 function toggleMobileMenu() {
     var menu = document.getElementById('mobile-menu');
     if (menu) {
@@ -84,22 +85,8 @@ function toggleMobileMenu() {
     }
 }
 
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     'use strict';
-
-    // Mobile menu toggle
-    var menuBtn = document.getElementById('menu-btn');
-    var mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', function() {
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    }
 
     // Navbar scroll effect
     var navbar = document.getElementById('navbar');
@@ -133,6 +120,6 @@ function toggleMobileMenu() {
             window.dispatchEvent(new Event('scroll'));
         }
     }
-})();
+});
 </script>
 </footer>
